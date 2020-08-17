@@ -1,0 +1,140 @@
+/**
+ * Timeline styling
+ */
+ .timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline:before {
+  content: "";
+  position: absolute;
+  top: -3em;
+  left: 2em;
+  width: .25em;
+  height: calc(100% + 6em);
+  background: -webkit-gradient(linear, left top, left bottom, from(#151515), color-stop(2%, #3b3b3b), color-stop(98%, #3b3b3b), to(#151515));
+  background: linear-gradient(to bottom, #151515 0%, #3b3b3b 2%, #3b3b3b 98%, #151515 100%);
+}
+@media screen and (min-width: 45em) {
+  .timeline:before {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.timeline__entry {
+  position: relative;
+  margin-bottom: 4em;
+  color: #fff;
+}
+.timeline__entry:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.timeline__id {
+  position: absolute;
+  top: 1em;
+  left: 2em;
+  padding: .5em 1em;
+  background: #282727;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+@media screen and (min-width: 45em) {
+  .timeline__id {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.timeline__content {
+  position: relative;
+  display: block;
+  margin-left: 6em;
+  padding: 1em;
+  background: #282727;
+}
+@media screen and (min-width: 45em) {
+  .timeline__content {
+    margin-left: 0;
+    width: calc(50% - 4em);
+  }
+}
+.timeline__content:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 1em;
+  left: -1em;
+  border-top: 1em solid transparent;
+  border-bottom: 1em solid transparent;
+  border-right: 1em solid #282727;
+}
+@media screen and (min-width: 45em) {
+  .timeline__content:before {
+    left: auto;
+    right: -1em;
+    border-left: 1em solid #282727;
+    border-right: none;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  .timeline__content--flipped {
+    float: right;
+  }
+  .timeline__content--flipped:before {
+    left: -1em;
+    right: auto;
+    border-left: none;
+    border-right: 1em solid #282727;
+  }
+}
+
+.timeline__heading {
+  margin-bottom: .25em;
+  font-size: 1.2rem;
+}
+
+.timeline__text {
+  color: #ccc;
+}
+.timeline__text:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Basic styling
+ */
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.4;
+  background-color: #151515;
+}
+
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: 4em auto;
+}
+
+.section-title {
+  padding-bottom: 2em;
+  text-align: center;
+  color: #dddddd;
+}
