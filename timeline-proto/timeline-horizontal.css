@@ -12,8 +12,13 @@ button {
 }
 
 body {
-  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-  background-color: #151515;
+  font: normal 16px/1.5 "futura", sans-serif;
+  background-color: #222222;
+  color: #e8e8e8;
+}
+
+a {
+  color: #f6bf00
 }
 
 /* .section SECTION
@@ -95,7 +100,7 @@ body {
   padding: 15px;
   font-size: 1rem;
   white-space: normal;
-  color: #ccc;
+  color: #e8e8e8;
   background: #222222;
 }
 
@@ -135,7 +140,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #fff;
+  color: #e8e8e8;
 }
 
 /* TIMELINE ARROWS
