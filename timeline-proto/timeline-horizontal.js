@@ -16,7 +16,9 @@
   function init() {
     setEqualHeights(elH);
     animateTl(xScrolling, arrows, timeline);
-    setSwipeFn(timeline, arrowPrev, arrowNext);
+    // Currently, this is used for desktop viewing.
+    // Disable swipe support, which should enable text copy.
+    // setSwipeFn(timeline, arrowPrev, arrowNext);
     setKeyboardFn(arrowPrev, arrowNext);
   }
 
