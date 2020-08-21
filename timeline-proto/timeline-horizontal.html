@@ -11,11 +11,11 @@
 <body>
 <section class="timeline">
   <h1 class="section-title">Women's Suffrage</h1>
-  <ol id="timeline" class="timeline">
+  <ol id="timeline">
     <li>
-      <div>
+      <span class="timeline__id">June 1840</span><div>
         <h2>World Anti-Slavery Convention</h2>
-        <time>June 1840</time> In March 1839, a New York abolitionist newspaper called for a convention to unite the efforts of national anti-slavery forces from around the world. And in the summer of 1840, the British and Foreign Anti-Slavery Society (BFASS) answered the call. From June 12 to June 23, the General Anti-Slavery Convention, hosted by the BFASS and later known as the World Anti-Slavery Convention, convened at Exeter Hall in London. More than 500 abolitionists from Canada to Mauritius attended the meeting, and the public proceedings attracted around 1,000 spectators daily.
+        In March 1839, a New York abolitionist newspaper called for a convention to unite the efforts of national anti-slavery forces from around the world. And in the summer of 1840, the British and Foreign Anti-Slavery Society (BFASS) answered the call. From June 12 to June 23, the General Anti-Slavery Convention, hosted by the BFASS and later known as the World Anti-Slavery Convention, convened at Exeter Hall in London. More than 500 abolitionists from Canada to Mauritius attended the meeting, and the public proceedings attracted around 1,000 spectators daily.
         <br>
         Women were barred from attending the World Anti-Slavery Convention. This prompts Lucretia Mott and Elizabeth Cady Stanton to hold a Women's Convention in the US.
         <a href="https://www.historiansagainstslavery.org/main/the-world-antislavery-convention-of-1840/">Learn more</a>
@@ -35,6 +35,31 @@
 
 <script src="timeline-horizontal.js"></script>
 <script src="timeline-data.js"></script>
-<script src="timeline-loader.js"></script>
+<script>
+  (function() {
+  const timelineElement = document.getElementById("timeline");
+  while (timelineElement.firstChild) {
+    timelineElement.removeChild(timelineElement.firstChild);
+  }
+  if (timelineData) {
+    for (let index=0; index < timelineData.length; index++) {
+      let timelineItem = timelineData[index];
+      let htmlItem = `<span class="timeline__id">${timelineItem.date}</span><div>
+        <h2>${timelineItem.title}</h2>
+        ${timelineItem.description}
+        <br><br>
+        <a href="${timelineItem.link}" target="_blank">Learn more</a>
+      </div>
+      `;
+      let newItem = document.createElement('li');
+      newItem.className = "timeline__entry";
+      newItem.innerHTML = htmlItem;
+      timelineElement.appendChild(newItem);
+    }
+  } else {
+    timelineElement.innerHTML = "<li><h2>Timeline data is missing</h2></li>";
+  }
+})();
+</script>
 </body>
 </html>
