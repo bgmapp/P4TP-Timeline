@@ -11,14 +11,25 @@ button {
   outline: none;
 }
 
-body {
-  font: normal 16px/1.5 "futura", sans-serif;
-  background-color: #222222;
-  color: #e8e8e8;
+@font-face {
+  font-family: 'futuralight-condensed';
+  src: url('font/futura_light_font-webfont.woff2') format('woff2'), url('font/futura_light_font-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-a {
-  color: #f6bf00
+@font-face {
+  font-family: 'futuralight';
+  src: url('font/futura_light_bt-webfont.woff2') format('woff2'), url('font/futura_light_bt-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'futuralight', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #222222;
 }
 
 /* .section SECTION
@@ -46,7 +57,7 @@ a {
 .timeline ol {
   font-size: 0;
   width: 100vw;
-  padding: 250px 0;
+  padding: 410px 0;
   transition: all 1s;
 }
 
@@ -54,29 +65,47 @@ a {
   position: relative;
   display: inline-block;
   list-style-type: none;
-  width: 160px;
+  width: 130px;
   height: 3px;
   background: #e8e8e8;
 }
 
 .timeline ol li:first-child {
-  background: linear-gradient(to right, #151515 0%, #e8e8e8 50%, #e8e8e8 50%);
+  background: linear-gradient(to right, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
 }
 
 .timeline ol li:last-child {
-  width: 280px;
-  background: linear-gradient(to left, #151515 0%, #e8e8e8 50%, #e8e8e8 50%);
+  width: 260px;
+  background: linear-gradient(to left, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
+}
+
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
+
+.timeline ol li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #f6bf00;
 }
 
 .timeline ol li div {
   position: absolute;
-  left: 100%;
-  width: 280px;
-  padding: 15px;
+  left: calc(100% + 7px);
+  width: 250px;
+  height: 370px;
+  padding: 16px;
   font-size: 1rem;
   white-space: normal;
-  color: #e8e8e8;
-  background: #222222;
+  color: #222222;
+  background: #e8e8e8;
 }
 
 .timeline ol li div::before {
@@ -97,7 +126,7 @@ a {
 .timeline ol li:nth-child(odd) div::before {
   top: 100%;
   border-width: 8px 8px 0 0;
-  border-color: #222222 transparent transparent transparent;
+  border-color: #e8e8e8 transparent transparent transparent;
 }
 
 .timeline ol li:nth-child(even) div {
@@ -107,19 +136,40 @@ a {
 .timeline ol li:nth-child(even) div::before {
   top: -8px;
   border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent #222222;
+  border-color: transparent transparent transparent #e8e8e8;
 }
 
-.timeline__id {
-  display: inline-block;
-  position: absolute;
-  font-size: 1rem;
+.timeline time {
+  display: block;
+  font-size: 1.9rem;
   font-weight: normal;
-  padding: .5em;
-  margin: -10% 150%;
+  margin-bottom: 25px;
+  color: #222;
+}
+
+.timeline ol li div h4 {
+  margin-bottom: 10px;
+}
+
+.timeline ol li div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+  margin-bottom: 5px;
+}
+
+.timeline ol li div a {
+  color: #bd9400;
+}
+
+.timeline-header {
+  padding-left: 130px;
+  padding-top: 20px;
   color: #e8e8e8;
-  background: #282727;
-  z-index: 1;
+  font-size: 2rem;
 }
 
 /* TIMELINE ARROWS
