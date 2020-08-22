@@ -57,7 +57,7 @@ body {
 .timeline ol {
   font-size: 0;
   width: 100vw;
-  padding: 410px 0;
+  padding: 380px 0;
   transition: all 1s;
 }
 
@@ -75,7 +75,6 @@ body {
 }
 
 .timeline ol li:last-child {
-  width: 260px;
   background: linear-gradient(to left, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
 }
 
@@ -83,7 +82,7 @@ body {
   margin-left: 14px;
 }
 
-.timeline ol li:not(:last-child)::after {
+.timeline ol li::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -100,7 +99,7 @@ body {
   position: absolute;
   left: calc(100% + 7px);
   width: 250px;
-  height: 370px;
+  height: 340px;
   padding: 16px;
   font-size: 1rem;
   white-space: normal;
@@ -149,13 +148,14 @@ body {
 
 .timeline ol li div h4 {
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .timeline ol li div p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 10;
+  -webkit-line-clamp: 8;
   /* number of lines to show */
   -webkit-box-orient: vertical;
   margin-bottom: 5px;
