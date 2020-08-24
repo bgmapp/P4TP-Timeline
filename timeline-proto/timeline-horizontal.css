@@ -57,7 +57,7 @@ body {
 .timeline ol {
   font-size: 0;
   width: 100vw;
-  padding: 380px 0;
+  padding: 350px 0;
   transition: all 1s;
 }
 
@@ -99,7 +99,7 @@ body {
   position: absolute;
   left: calc(100% + 7px);
   width: 250px;
-  height: 340px;
+  height: 310px;
   padding: 16px;
   font-size: 1rem;
   white-space: normal;
@@ -142,7 +142,7 @@ body {
   display: block;
   font-size: 1.9rem;
   font-weight: normal;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   color: #222;
 }
 
@@ -155,7 +155,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 7;
   /* number of lines to show */
   -webkit-box-orient: vertical;
   margin-bottom: 5px;
