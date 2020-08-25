@@ -57,7 +57,8 @@ body {
 .timeline ol {
   font-size: 0;
   width: 100vw;
-  padding: 350px 0;
+  height: 500px;
+  padding-top: 50px;
   transition: all 1s;
 }
 
@@ -65,12 +66,13 @@ body {
   position: relative;
   display: inline-block;
   list-style-type: none;
-  width: 130px;
+  width: 270px;
   height: 3px;
   background: #e8e8e8;
 }
 
 .timeline ol li:first-child {
+  width: 100px;
   background: linear-gradient(to right, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
 }
 
@@ -98,8 +100,8 @@ body {
 .timeline ol li div {
   position: absolute;
   left: calc(100% + 7px);
-  width: 250px;
-  height: 310px;
+  width: 270px;
+  height: 400px;
   padding: 16px;
   font-size: 1rem;
   white-space: normal;
@@ -118,14 +120,13 @@ body {
 }
 
 .timeline ol li:nth-child(odd) div {
-  top: -16px;
-  transform: translateY(-100%);
+  top: calc(100% + 16px);
 }
 
 .timeline ol li:nth-child(odd) div::before {
-  top: 100%;
-  border-width: 8px 8px 0 0;
-  border-color: #e8e8e8 transparent transparent transparent;
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent #e8e8e8;
 }
 
 .timeline ol li:nth-child(even) div {
@@ -155,13 +156,14 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 12;
   /* number of lines to show */
   -webkit-box-orient: vertical;
   margin-bottom: 5px;
 }
 
 .timeline ol li div a {
+  cursor: default;
   color: #bd9400;
 }
 
