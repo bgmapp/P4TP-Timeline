@@ -57,7 +57,7 @@ body {
 .timeline ol {
   font-size: 0;
   width: 100vw;
-  height: 500px;
+  height: 470px;
   padding-top: 50px;
   transition: all 1s;
 }
@@ -68,11 +68,11 @@ body {
   list-style-type: none;
   width: 270px;
   height: 3px;
-  background: #e8e8e8;
+  background-color: #e8e8e8;
 }
 
 .timeline ol li:first-child {
-  width: 100px;
+  width: 70px;
   background: linear-gradient(to right, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
 }
 
@@ -101,12 +101,12 @@ body {
   position: absolute;
   left: calc(100% + 7px);
   width: 270px;
-  height: 400px;
+  height: 370px;
   padding: 16px;
   font-size: 1rem;
   white-space: normal;
-  color: #222222;
-  background: #e8e8e8;
+  color: #e8e8e8;
+  background: #282727;
 }
 
 .timeline ol li div::before {
@@ -126,7 +126,7 @@ body {
 .timeline ol li:nth-child(odd) div::before {
   top: -8px;
   border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent #e8e8e8;
+  border-color: transparent transparent transparent #282727;
 }
 
 .timeline ol li:nth-child(even) div {
@@ -136,7 +136,7 @@ body {
 .timeline ol li:nth-child(even) div::before {
   top: -8px;
   border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent #e8e8e8;
+  border-color: transparent transparent transparent #282727;
 }
 
 .timeline time {
@@ -144,7 +144,7 @@ body {
   font-size: 1.9rem;
   font-weight: normal;
   margin-bottom: 16px;
-  color: #222;
+  color: #fff;
 }
 
 .timeline ol li div h4 {
@@ -156,7 +156,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 12;
+  -webkit-line-clamp: 10;
   /* number of lines to show */
   -webkit-box-orient: vertical;
   margin-bottom: 5px;
