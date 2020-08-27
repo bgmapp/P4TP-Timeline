@@ -1,0 +1,243 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+@font-face {
+  font-family: 'futuralight-condensed';
+  src: url('font/futura_light_font-webfont.woff2') format('woff2'), url('font/futura_light_font-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'futuralight';
+  src: url('font/futura_light_bt-webfont.woff2') format('woff2'), url('font/futura_light_bt-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'futuralight', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #222222;
+}
+
+/* .section SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.section {
+  padding: 50px 0;
+}
+
+.section .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline {
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.timeline ol {
+  font-size: 0;
+  width: 100vw;
+  height: 470px;
+  padding-top: 50px;
+  transition: all 1s;
+}
+
+.timeline ol li {
+  position: relative;
+  display: inline-block;
+  list-style-type: none;
+  width: 270px;
+  height: 3px;
+  background-color: #e8e8e8;
+}
+
+.timeline ol li:first-child {
+  width: 70px;
+  background: linear-gradient(to right, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
+}
+
+.timeline ol li:last-child {
+  background: linear-gradient(to left, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
+}
+
+.timeline ol li:not(:first-child) {
+  margin-left: 14px;
+}
+
+.timeline ol li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 1px);
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #f6bf00;
+}
+
+.timeline ol li div {
+  position: absolute;
+  left: calc(100% + 7px);
+  width: 270px;
+  height: 370px;
+  padding: 16px;
+  font-size: 1rem;
+  white-space: normal;
+  color: #e8e8e8;
+  background: #282727;
+}
+
+.timeline ol li div::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ol li:nth-child(odd) div {
+  top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(odd) div::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent #282727;
+}
+
+.timeline ol li:nth-child(even) div {
+  top: calc(100% + 16px);
+}
+
+.timeline ol li:nth-child(even) div::before {
+  top: -8px;
+  border-width: 8px 0 0 8px;
+  border-color: transparent transparent transparent #282727;
+}
+
+.timeline time {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: normal;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.timeline ol li div h4 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.timeline ol li div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+  margin-bottom: 5px;
+}
+
+.timeline ol li div a {
+  cursor: default;
+  color: #bd9400;
+}
+
+.timeline-header {
+  padding-left: 130px;
+  padding-top: 20px;
+  color: #e8e8e8;
+  font-size: 2rem;
+}
+
+/* TIMELINE ARROWS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline .arrows {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.timeline .arrows .arrow__prev {
+  margin-right: 20px;
+}
+
+.timeline .disabled {
+  opacity: 0.5;
+}
+
+.timeline .arrows img {
+  width: 45px;
+  height: 45px;
+}
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 599px) {
+  .timeline ol, .timeline ol li {
+    width: auto;
+  }
+  .timeline ol {
+    padding: 0;
+    transform: none !important;
+  }
+  .timeline ol li {
+    display: block;
+    height: auto;
+    background: transparent;
+  }
+  .timeline ol li:first-child {
+    margin-top: 25px;
+  }
+  .timeline ol li:not(:first-child) {
+    margin-left: auto;
+  }
+  .timeline ol li div {
+    width: 94%;
+    height: auto !important;
+    margin: 0 auto 25px;
+  }
+  .timeline ol li div {
+    position: static;
+  }
+  .timeline ol li:nth-child(odd) div {
+    transform: none;
+  }
+  .timeline ol li:nth-child(odd) div::before, .timeline ol li:nth-child(even) div::before {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: none;
+    border-left: 1px solid white;
+    height: 25px;
+  }
+  .timeline ol li:last-child, .timeline ol li:nth-last-child(2) div::before, .timeline ol li:not(:last-child)::after, .timeline .arrows {
+    display: none;
+  }
+}
