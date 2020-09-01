@@ -55,6 +55,7 @@ body {
 }
 
 .timeline ol {
+  display: flex;
   font-size: 0;
   width: 100vw;
   height: 470px;
@@ -64,79 +65,61 @@ body {
 
 .timeline ol li {
   position: relative;
-  display: inline-block;
-  list-style-type: none;
-  width: 270px;
-  height: 3px;
-  background-color: #e8e8e8;
-}
-
-.timeline ol li:first-child {
-  width: 70px;
-  background: linear-gradient(to right, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
-}
-
-.timeline ol li:last-child {
-  background: linear-gradient(to left, #222222 0%, #e8e8e8 50%, #e8e8e8 50%);
-}
-
-.timeline ol li:not(:first-child) {
+  flex: 0 0 270px;
+  margin-top: 19px;
   margin-left: 14px;
+  list-style-type: none;
+}
+
+.timeline ol li:first-of-type {
+  margin-left: 77px;
+}
+
+.timeline ol li:last-of-type {
+  margin-right: 77px;
+}
+
+.timeline ol li::before {
+  content: "";
+  position: absolute;
+  top: -17px;
+  left: 0;
+  width: calc(100% + 14px);
+  height: 3px;
+  transform: translateY(-50%);
+  background: #e8e8e8;
+}
+
+.timeline ol li:first-of-type::before {
+  left: -77px;
+  width: calc(100% + 14px + 77px);
+  background: linear-gradient(to right, #222222 0%, #e8e8e8 38px, #e8e8e8 38px);
+}
+
+.timeline ol li:last-of-type::before {
+  width: calc(100% + 14px + 77px);
+  background: linear-gradient(to left, #222222 0%, #e8e8e8 38px, #e8e8e8 38px);
 }
 
 .timeline ol li::after {
   content: "";
   position: absolute;
-  top: 50%;
-  left: calc(100% + 1px);
-  bottom: 0;
-  width: 12px;
-  height: 12px;
-  transform: translateY(-50%);
+  top: -17px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   background: #f6bf00;
+  border: 1px solid #222222;
 }
 
 .timeline ol li div {
-  position: absolute;
-  left: calc(100% + 7px);
-  width: 270px;
-  height: 370px;
   padding: 16px;
   font-size: 1rem;
   white-space: normal;
   color: #e8e8e8;
   background: #282727;
-}
-
-.timeline ol li div::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-.timeline ol li:nth-child(odd) div {
-  top: calc(100% + 16px);
-}
-
-.timeline ol li:nth-child(odd) div::before {
-  top: -8px;
-  border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent #282727;
-}
-
-.timeline ol li:nth-child(even) div {
-  top: calc(100% + 16px);
-}
-
-.timeline ol li:nth-child(even) div::before {
-  top: -8px;
-  border-width: 8px 0 0 8px;
-  border-color: transparent transparent transparent #282727;
 }
 
 .timeline time {
@@ -200,44 +183,41 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 @media screen and (max-width: 599px) {
-  .timeline ol, .timeline ol li {
-    width: auto;
-  }
   .timeline ol {
-    padding: 0;
-    transform: none !important;
+    flex-direction: column;
   }
   .timeline ol li {
-    display: block;
-    height: auto;
-    background: transparent;
+    flex: auto;
+    width: 94%;
+    margin: auto;
+    margin-bottom: 25px;
   }
-  .timeline ol li:first-child {
+  .timeline ol li:first-of-type {
     margin-top: 25px;
-  }
-  .timeline ol li:not(:first-child) {
     margin-left: auto;
   }
-  .timeline ol li div {
-    width: 94%;
-    height: auto !important;
-    margin: 0 auto 25px;
+  .timeline ol li:last-of-type {
+    margin-right: auto;
   }
-  .timeline ol li div {
-    position: static;
-  }
-  .timeline ol li:nth-child(odd) div {
-    transform: none;
-  }
-  .timeline ol li:nth-child(odd) div::before, .timeline ol li:nth-child(even) div::before {
+  .timeline ol li::before,
+  .timeline ol li:first-of-type::before {
+    content: "";
+    position: absolute;
     left: 50%;
     top: 100%;
-    transform: translateX(-50%);
-    border: none;
-    border-left: 1px solid white;
+    width: 1px;
     height: 25px;
+    transform: translateX(-50%);
+    background: #e8e8e8;
   }
-  .timeline ol li:last-child, .timeline ol li:nth-last-child(2) div::before, .timeline ol li:not(:last-child)::after, .timeline .arrows {
+  .timeline ol li:last-of-type::before,
+  .timeline ol li::after {
+    display: none;
+  }
+  .timeline ol li div {
+    height: auto !important;
+  }
+  .timeline .arrows {
     display: none;
   }
 }
