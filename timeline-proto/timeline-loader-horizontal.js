@@ -14,30 +14,35 @@ function fetchParams () {
   return [url, opts];
 }
 
+function sortByOrder (a, b) {
+  return a.fields.Order - b.fields.Order;
+}
+
+function formatItem (record) {
+  const {
+    Title: title,
+    Description: description,
+    Location: location,
+    Date: date,
+    Link: link
+  } = record.fields;
+  return `
+  <li>
+    <div>
+      <time>${date}</time>
+      <h4>${title}</h4>
+      <p>${description}</p>
+      <a href="${link}" target="_blank">Learn more</a>
+    </div>
+  </li>
+  `;
+}
+
 function appendTimeline ({ records }) {
   const timelineElement = document.getElementById("timeline-ordered-list");
   let markup = `<li><h4>Timeline data is missing.</h4></li>`;
   if (records.length) {
-    markup = records.reduce((memo, record) => {
-      const {
-        Title: title,
-        Description: description,
-        Location: location,
-        Date: date,
-        Link: link
-      } = record.fields;
-      const item = `
-      <li>
-        <div>
-          <time>${date}</time>
-          <h4>${title}</h4>
-          <p>${description}</p>
-          <a href="${link}" target="_blank">Learn more</a>
-        </div>
-      </li>
-      `;
-      return memo + item
-    }, '');
+    markup = records.sort(sortByOrder).map(formatItem).join('');
   }
   timelineElement.innerHTML = markup;
   applyScrolling();
