@@ -1,4 +1,4 @@
-(function () {
+function applyScrolling () {
   // VARIABLES
   const timeline = document.querySelector(".timeline ol"),
     elH = document.querySelectorAll(".timeline li > div"),
@@ -11,8 +11,6 @@
     disabledClass = "disabled";
 
   // START
-  window.addEventListener("load", init);
-
   function init() {
     setEqualHeights(elH);
     animateTl(xScrolling, arrows, timeline);
@@ -127,4 +125,6 @@
       }
     });
   }
-})();
+
+  init();
+};
